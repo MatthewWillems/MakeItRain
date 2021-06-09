@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+    <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-layout-component@3.0.1"></script>
+    <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
+    <script src="components/set-image.js"></script>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="main" src="pictures/main_def.png">
+            <img id="home" src="pictures/sec_1home.png">
+            <img id="games" src="pictures/sec_2games.png">
+            <img id="apps" src="pictures/sec_3apps.png">
+            <img id="shop" src="pictures/sec_4shop.png">
+            <img id="settings" src="pictures/sec_5settings.png">
+        </a-assets>
+        
+        <!--BOVEN-->
+        <a-image position="0 1 -2.5" scale="2 1 2" src="#main"></a-image>
+        
+        
+        <!--ONDER-->
+        <a-image position="-1 0.1 -2.5" scale="0.5 0.5 0.5" src="#home"></a-image>
+        <a-image position="-0.45 0.1 -2.5" scale="0.5 0.5 0.5" src="#games"></a-image>
+        <!--<a-image position="0.1 -0.01 -2.5" scale="1 1 1" src="#apps"></a-image>
+        <a-image position="0.65 -0.01 -2.5" scale="1 1 1" src="#shop"></a-image>
+        <a-image position="1,2 -0.01 -2.5" scale="1 1 1" src="#settings"></a-image>-->
+      
+        
+        <!-- Camera + cursor. -->
+        <a-entity camera look-controls>
+          <a-cursor id="cursor" 
+              animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+              animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+              event-set__1="_event: mouseenter; color: #0092d8" 
+              event-set__2="_event: mouseleave; color: black"></a-cursor>
+        </a-entity>
+    </a-scene>
+</body>
+</html>
